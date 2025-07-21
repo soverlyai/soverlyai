@@ -1,186 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Soverly - Sovereign AI for the Edge</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg-primary: #000000;
-            --bg-secondary: #0a0a0a;
-            --bg-card: #111111;
-            --text-primary: #ffffff;
-            --text-secondary: #888888;
-            --text-muted: #666666;
-            --accent-blue: #0066ff;
-            --accent-green: #00ff88;
-            --border-color: #222222;
-            --gradient-text: linear-gradient(90deg, #ffffff 0%, #888888 100%);
-            --gradient-accent: linear-gradient(90deg, #0066ff 0%, #00ff88 100%);
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Header Styles */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 2rem;
-            max-width: 1280px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            height: 32px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
-        }
-
-        .logo:hover {
-            opacity: 1;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0 2rem;
-            position: relative;
-            background: radial-gradient(ellipse at center top, #0a0a0a 0%, #000000 100%);
-        }
-
-        .grid-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        .hero-content {
-            text-align: center;
-            max-width: 1000px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 700;
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        .gradient-text {
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero .subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-            color: var(--text-secondary);
-            margin-bottom: 3rem;
-            font-weight: 400;
-            line-height: 1.5;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s ease 0.2s forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
+    <header id="header">
+        <nav>
+            <a href="index.html"><img src="assets/logo.png" alt="Soverly Logo" class="logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Products</a></li>
+                <li><a href="index.html#features">Solutions</a></li>
+                <li><a href="index.html#use-cases">Use Cases</a></li>
+                <li><a href="about.html">Company</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-button">Get Started</a></li>
+            </ul>
+            <div class="mobile-menu" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
     <section class="hero" id="home">
         <div class="grid-overlay"></div>
         <div class="hero-content">
-            <h1><span class="gradient-text">Soverly</span><br>Coming Soon</h1>
+            <h1>Deploy <span class="gradient-text">Sovereign AI</span><br>On Your Infrastructure</h1>
+            <p class="subtitle">Run enterprise-grade language models locally with complete data sovereignty. No cloud
+                dependencies. No privacy concerns. Just powerful AI that you control.</p>
+            <div class="button-group">
+                <a href="contact.html" class="cta-button">Start Building →</a>
+            </div>
+        </div>
     </section>
 
-    <script>
-        // Header backdrop blur on scroll
-        let lastScrollY = 0;
-        const header = document.getElementById('header');
-        
-        window.addEventListener('scroll', () => {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 50) {
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
-            } else {
-                header.style.background = 'rgba(0, 0, 0, 0.8)';
-            }
-            
-            lastScrollY = currentScrollY;
-        });
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Data Privacy</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50%</div>
+                <div class="stat-label">Cost Savings</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">30%</div>
+                <div class="stat-label">Productivity Boost</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">0</div>
+                <div class="stat-label">Cloud Dependencies</div>
+            </div>
+        </div>
+    </section>
 
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    <section class="timeline" id="features">
+        <h2>Built for the Enterprise Edge</h2>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-progress" id="timeline-progress"></div>
 
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Complete Data Sovereignty 🔒</h3>
+                    <p>Your data never leaves your infrastructure. Process sensitive information with confidence,
+                        meeting the strictest compliance requirements for healthcare, finance, and government sectors.
+                    </p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
 
-        // Observe elements
-        document.querySelectorAll('.stat, .feature-card, .use-case-pill').forEach(el => {
-            observer.observe(el);
-        });
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Optimized for Edge Deployment ⚡</h3>
+                    <p>Our models are specifically optimized to run on standard hardware. Get GPT-level performance
+                        without expensive GPU clusters or cloud infrastructure.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
 
-    </script>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Domain-Specific Fine-Tuning 🎯</h3>
+                    <p>Customize models for your specific use case. Whether it's medical diagnosis, legal analysis, or
+                        technical documentation, create AI that speaks your language.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div> 
+    </section>
+
+    <section class="use-cases" id="use-cases">
+        <div class="section-header">
+            <h2>Powering Critical Use Cases</h2>
+            <p>From healthcare to defense, organizations trust Soverly for mission-critical AI deployment</p>
+        </div>
+        <div class="use-cases-grid">
+            <div class="use-case-pill">Healthcare & Medical</div>
+            <div class="use-case-pill">Financial Services</div>
+            <div class="use-case-pill">Legal & Compliance</div>
+            <div class="use-case-pill">Defense & Security</div>
+            <div class="use-case-pill">Manufacturing</div>
+            <div class="use-case-pill">Research & Development</div>
+            <div class="use-case-pill">Government</div>
+            <div class="use-case-pill">Energy & Utilities</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+        <!--
+            <div class="footer-column">
+                <h4>Solutions</h4>
+                <a href="#">Healthcare</a>
+                <a href="#">Financial Services</a>
+                <a href="#">Government</a>
+                <a href="#">Manufacturing</a>
+            </div>
+        -->
+            <div class="footer-column">
+                <h4>Company</h4>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        <!--
+            <div class="footer-column">
+                <h4>Resources</h4>
+                <a href="#">Guides</a>
+                <a href="#">Case Studies</a>
+                <a href="#">Whitepapers</a>
+                <a href="#">Support</a>
+            </div>
+        -->
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Soverly. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Twitter">𝕏</a>
+                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="#" aria-label="GitHub">⚙</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/about.js"></script>
 </body>
+
 </html>
