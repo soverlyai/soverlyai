@@ -1,10 +1,9 @@
-/* Hero Section */
 .hero {
     padding: 10rem 2rem 4rem;
     text-align: center;
     position: relative;
     overflow: hidden;
-    background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, transparent 70%);
+    background: radial-gradient(ellipse at center, rgba(232, 230, 227, 0.05) 0%, transparent 70%);
 }
 
 .hero h1 {
@@ -15,6 +14,7 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
+    color: #e8e6e3;
 }
 
 .hero .subtitle {
@@ -34,7 +34,6 @@
     }
 }
 
-/* Contact Section */
 .contact-section {
     padding: 4rem 2rem;
     max-width: 1000px;
@@ -48,7 +47,6 @@
     align-items: start;
 }
 
-/* Contact Form */
 .contact-form-wrapper {
     background: var(--bg-card);
     padding: 3rem;
@@ -73,21 +71,36 @@
 .form-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    background: linear-gradient(90deg, #0066ff, #00ff88, #0066ff);
-    background-size: 200% auto;
+    background: linear-gradient(125deg, 
+            #e8e6e3 0%, 
+            #c7c5c2 15%,
+            #71717a 30%,
+            #e8e6e3 40%,
+            #a1a1aa 50%,
+            #c7c5c2 60%,
+            #e8e6e3 70%,
+            #71717a 85%,
+            #d4d2cf 100%);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: gradientShift 3s ease-in-out infinite;
+    animation: marbleFlow 8s ease-in-out infinite;
+    filter: contrast(1.1) brightness(1.2);
 }
 
-@keyframes gradientShift {
-    0% {
-        background-position: 0% center;
+@keyframes marbleFlow {
+    0%, 100% {
+        background-position: 0% 50%;
     }
-
-    100% {
-        background-position: 200% center;
+    25% {
+        background-position: 100% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    75% {
+        background-position: 0% 100%;
     }
 }
 
@@ -109,7 +122,7 @@
 
 .form-group label {
     font-size: 0.95rem;
-    color: var(--text-secondary);
+    color: #c7c5c2;
     font-weight: 500;
 }
 
@@ -120,10 +133,23 @@
     border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 0.875rem 1rem;
-    color: var(--text-primary);
+    color: #e8e6e3;
     font-size: 1rem;
     transition: all 0.2s ease;
     font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #e8e6e3;
+    box-shadow: 0 0 0 2px rgba(232, 230, 227, 0.1);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
 }
 
 .form-group textarea {
@@ -138,26 +164,30 @@
 }
 
 .submit-button {
-    background: var(--gradient-accent);
-    color: var(--text-primary);
+    background: #e8e6e3;
+    color: var(--bg-primary);
     padding: 1rem 2rem;
-    border: none;
+    border: 1px solid #e8e6e3;
     border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
     margin-top: 1rem;
 }
 
 .submit-button:hover {
+    background: transparent;
+    color: #e8e6e3;
     transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+    box-shadow: 0 10px 30px rgba(232, 230, 227, 0.1);
 }
 
+.form-group select option {
+    background: var(--bg-secondary);
+    color: #e8e6e3;
+}
 
-
-/* Responsive */
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 2.5rem;
