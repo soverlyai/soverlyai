@@ -10,7 +10,11 @@
     justify-content: center;
     padding: 0 2rem;
     position: relative;
-    background: radial-gradient(ellipse at center top, #0a0a0a 0%, #000000 100%);
+    background-image: url('../assets/back.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     cursor: default;
 }
 
@@ -18,39 +22,21 @@
     text-align: center;
     max-width: 1000px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    padding: 3rem;
 }
 
 .hero h1 {
+    font-family: 'Homenaje', sans-serif;
     font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
+    font-weight: 400;
     line-height: 1.1;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease forwards;
-    color: #e8e6e3; /* Off-white for non-gradient text */
-}
 
-.gradient-text {
-    background: 
-        linear-gradient(125deg, 
-            #e8e6e3 0%, 
-            #c7c5c2 15%,
-            #71717a 30%,
-            #e8e6e3 40%,
-            #a1a1aa 50%,
-            #c7c5c2 60%,
-            #e8e6e3 70%,
-            #71717a 85%,
-            #d4d2cf 100%);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: marbleFlow 8s ease-in-out infinite;
-    filter: contrast(1.1) brightness(1.2);
 }
 
 @keyframes marbleFlow {
@@ -69,14 +55,22 @@
 }
 
 .hero .subtitle {
+    font-family: 'Homenaje', sans-serif;
     font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-    color: var(--text-secondary);
+    color: #d4d2cf;
     margin-bottom: 3rem;
     font-weight: 400;
     line-height: 1.5;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.8s ease 0.2s forwards;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.launchlist-widget {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease 0.4s forwards;
 }
 
 @keyframes fadeInUp {
@@ -91,12 +85,32 @@
     font-size: 1rem;
 }
 
+/* Mobile responsive styles */
 @media (max-width: 768px) {
     .hero h1 {
         font-size: 3rem;
     }
+    
+    .hero-content {
+        padding: 2rem;
+        margin: 0 1rem;
+    }
 
     .features-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .hero {
+        background-attachment: scroll;
+    }
+}
+
+@media (prefers-contrast: high) {
+    .hero::before {
+        background: rgba(0, 0, 0, 0.6);
+    }
+    
+    .hero-content {
+        background: rgba(0, 0, 0, 0.7);
     }
 }
